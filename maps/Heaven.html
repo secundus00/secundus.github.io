@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--おまじない-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="../media/post-plant.ico">
+	<link rel="stylesheet" href="../css/bootstrap-theme.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/css.css">
+<title>VALORANT Skils</title>
+</head>
+<body>
+	<div id="nav-bar">
+	</div>
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+	</div>
+
+	<div id="contentContainer" class="container">
+		<!--character-->
+		<div id="characterRow" class="row">
+			<div id="filterCol" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<label id="ViperButton" class="btn filterItem choice">
+						<input type="checkbox" name="Viperbox" autocomplete="off"> Viper
+					</label>
+					<label id="sovaButton" class="btn filterItem choice">
+						<input type="checkbox" name="sovabox" autocomplete="off"> Sova
+					</label>
+					<label id="KayoButton" class="btn filterItem choice">
+						<input type="checkbox" name="Kayobox" autocomplete="off"> KAY/O
+					</label>
+				</div>
+			</div>
+		</div>
+		<!--skill-->
+		<div id="skillRow" class="row">
+			<div id="filterCol" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<label id="SnakebiteButton" class="btn filterItem choice">
+						<input type="checkbox" name="Snakebitebox" autocomplete="off"> Snake Bite
+					</label>
+					<label id="PoisonCloudButton" class="btn filterItem choice">
+						<input type="checkbox" name="poisoncloudbox" autocomplete="off"> Poison Cloud
+					</label>
+				</div>
+				<!-- Rectangular switch -->
+				<label id="switch" class="switch">
+					<input type="checkbox" name="sideSwitch">
+					<span class="slider">
+						<span id="T">T</span>
+						<span id="CT" class="invisible">CT</span>
+					</span>
+				</label>
+			</div>
+		</div>
+		<!--map-->
+	    <div id="mapRow" class="row">
+	        <div id="mapCol" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	        	<img id="imgBox" class="img-responsive overlay" src="../media/heavenMap.jpg"></img>
+	        	<svg class="svgClass" viewBox="0 0 150 120" height="100%" width="100%" preserveAspectRatio="none">
+					<!--Viper snake bite-->
+					<a href="" onclick="genModal('Snake Bite/C default plant from C main','https://giant.gfycat.com/AlarmedWigglyFugu.mp4')" data-toggle="modal" data-target="#myModal">
+						<g class="snakebites t tsnakebite viper"> <!--css tags-->
+							<circle cx="28" cy="97" r="1"></circle>
+							<line x1="21" x2="28" y1="56" y2="97"></line>
+							<image xlink:href="../media/snakebite.png" x="17" y="50" width="7px" height="7px"></image>
+		        		</g>
+					</a>
+					<!--Viper Poison Cloud-->
+					<a href="" onclick="genModal('A heaven smoke','https://www.youtube.com/embed/FQTV2SsGOYk')" data-toggle="modal" data-target="#myModal">
+						<g class="poisonclouds t tpoisoncloud">
+							<line x1="132.5" x2="110" y1="38" y2="82"></line>
+							<circle cx="110" cy="82" r="1"></circle>
+							<image xlink:href="../media/poisoncloud.png" x="129" y="32" width="7px" height="7px"></image>
+						</g>
+					</a>
+	        	</svg>
+	        </div>
+	    </div>
+	</div>
+	<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/js.js"></script>
+	<script>
+		$( document ).ready(function() {
+			navBar();
+			modal();
+			loaded();
+			var snakebite = document.getElementById("SnakebiteButton");
+			var poisoncloud = document.getElementById("PoisonCloudButton");
+			var t = document.getElementById("T");
+			var ct = document.getElementById("CT");
+			$(snakebite).mouseover(function(){
+				if(snakebiteClicked==false){
+					snakebite.classList.add("selectedCheck");
+					snakebite.classList.remove("unselectedCheck");
+				}else{
+					snakebite.classList.remove("selectedCheck");
+					snakebite.classList.add("unselectedCheck");
+				}
+			});
+			$(snakebite).mouseout(function(){
+				if(snakebiteClicked==false){
+					snakebite.classList.remove("selectedCheck");
+					snakebite.classList.add("unselectedCheck");
+				}else{
+					snakebite.classList.add("selectedCheck");
+					snakebite.classList.remove("unselectedCheck");
+				}
+			});
+			$(poisoncloud).mouseover(function(){
+				if(poisoncloudClicked==false){
+					poisoncloud.classList.add("selectedCheck");
+					poisoncloud.classList.remove("unselectedCheck");
+				}else{
+					poisoncloud.classList.remove("selectedCheck");
+					poisoncloud.classList.add("unselectedCheck");
+				}
+			});
+			$(poisoncloud).mouseout(function(){
+				if(poisoncloudClicked==false){
+					poisoncloud.classList.remove("selectedCheck");
+					poisoncloud.classList.add("unselectedCheck");
+				}else{
+					poisoncloud.classList.add("selectedCheck");
+					poisoncloud.classList.remove("unselectedCheck");
+				}
+			});
+			$(snakebite).click(function() {
+				snakebiteClick();
+				$('input[name=Snakebitebox]').change(function(){
+				if($(this).is(':checked')) {
+					snakebite.classList.add("selectedCheck");
+					snakebite.classList.remove("unselectedCheck");
+				} else {
+					snakebite.classList.remove("selectedCheck");
+					snakebite.classList.add("unselectedCheck");
+				}
+				});
+			});
+			$('#PoisonCloudButton').click(function() {
+				poisoncloudClick();
+				$('input[name=poisoncloudbox]').change(function(){
+				if($(this).is(':checked')) {
+					poisoncloud.classList.add("selectedCheck");
+					poisoncloud.classList.remove("unselectedCheck");
+				} else {
+					poisoncloud.classList.remove("selectedCheck");
+					poisoncloud.classList.add("unselectedCheck");
+				}
+				});
+			});
+			$('#switch').click(function() {
+				$('input[name=sideSwitch]').change(function(){
+				if($(this).is(':checked')) {
+					ctClick();
+					t.classList.add("invisible");
+					t.classList.remove("visible");
+					ct.classList.add("visible");
+					ct.classList.remove("invisible");
+				} else {
+					tClick();
+					ct.classList.remove("visible");
+					ct.classList.add("invisible");
+					t.classList.add("visible");
+					t.classList.remove("invisible");
+				}
+				});
+			});
+		});
+	</script>
+</body>
+</html>
