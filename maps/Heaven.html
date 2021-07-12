@@ -13,11 +13,22 @@
 <body>
 	<div id="nav-bar">
 	</div>
-	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-		モーダル・ダイアログ 呼び出し
-	</button>
 	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div id="modal-header" class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Modal Header</h4>
+				</div>
+				<div class="modal-body">
+					<iframe id='videoTag' width="560" height="315" src="https://www.youtube.com/embed/jQhKoOCDVDw?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<div id="contentContainer" class="container">
