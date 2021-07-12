@@ -13,6 +13,9 @@
 <body>
 	<div id="nav-bar">
 	</div>
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+		モーダル・ダイアログ 呼び出し
+	</button>
 	<!-- Modal -->
 	<div id="myModal" class="modal fade" role="dialog">
 	</div>
@@ -86,7 +89,6 @@
 	<script>
 		$( document ).ready(function() {
 			navBar();
-			modal();
 			loaded();
 			var snakebite = document.getElementById("SnakebiteButton");
 			var poisoncloud = document.getElementById("PoisonCloudButton");
